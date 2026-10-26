@@ -2,29 +2,32 @@ import HamburgerMenuIcon from "@/assets/images/shared/icon-hamburger.svg";
 import CloseIcon from "@/assets/images/shared/icon-close.svg";
 import { useState } from "react";
 import { cn } from "../lib/cn";
+import { NavLink } from "react-router";
 
 export function NavMenu() {
   const [isMobileNavigationMenuOpen, setIsMobileNavigationMenuOpen] =
     useState(false);
 
-  const [selectedMenuOption, setSelectedMenuOption] = useState("00");
-
   const menuOptions = [
     {
       index: "00",
       label: "Home",
+      path: "/",
     },
     {
       index: "01",
       label: "Destination",
+      path: "destination",
     },
     {
       index: "02",
       label: "Crew",
+      path: "crew",
     },
     {
       index: "03",
       label: "Technology",
+      path: "technology",
     },
   ] as const;
 
@@ -44,13 +47,13 @@ export function NavMenu() {
           {menuOptions.map((menuOption) => {
             return (
               <li key={menuOption.index} className="h-full">
-                <button
-                  className={cn(
-                    "flex h-full cursor-pointer items-center gap-x-3 border-b-[3px] border-transparent",
-                    selectedMenuOption === menuOption.index && "border-white",
-                  )}
-                  onClick={() => {
-                    setSelectedMenuOption(menuOption.index);
+                <NavLink
+                  to={{ pathname: menuOption.path }}
+                  className={({ isActive }) => {
+                    return cn(
+                      "flex h-full cursor-pointer items-center gap-x-3 border-b-[3px] border-transparent",
+                      isActive && "border-white",
+                    );
                   }}
                 >
                   <span className="text-preset-8 bold font-barlow-condensed text-white">
@@ -59,7 +62,7 @@ export function NavMenu() {
                   <span className="text-preset-8 font-barlow-condensed text-white uppercase">
                     {menuOption.label}
                   </span>
-                </button>
+                </NavLink>
               </li>
             );
           })}
@@ -82,13 +85,13 @@ export function NavMenu() {
             {menuOptions.map((menuOption) => {
               return (
                 <li key={menuOption.index}>
-                  <button
-                    className={cn(
-                      "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent",
-                      selectedMenuOption === menuOption.index && "border-white",
-                    )}
-                    onClick={() => {
-                      setSelectedMenuOption(menuOption.index);
+                  <NavLink
+                    to={{ pathname: menuOption.path }}
+                    className={({ isActive }) => {
+                      return cn(
+                        "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent",
+                        isActive && "border-white",
+                      );
                     }}
                   >
                     <span className="text-preset-8 font-barlow-condensed font-bold text-white">
@@ -98,7 +101,7 @@ export function NavMenu() {
                       {menuOption.label}
                     </span>
                     <span></span>
-                  </button>
+                  </NavLink>
                 </li>
               );
             })}
