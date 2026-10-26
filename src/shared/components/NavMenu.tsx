@@ -56,7 +56,7 @@ export function NavMenu() {
                     );
                   }}
                 >
-                  <span className="text-preset-8 bold font-barlow-condensed text-white">
+                  <span className="text-preset-8-bold font-barlow-condensed text-white">
                     {menuOption.index}
                   </span>
                   <span className="text-preset-8 font-barlow-condensed text-white uppercase">
@@ -94,7 +94,7 @@ export function NavMenu() {
                       );
                     }}
                   >
-                    <span className="text-preset-8 font-barlow-condensed font-bold text-white">
+                    <span className="text-preset-8-bold font-barlow-condensed text-white">
                       {menuOption.index}
                     </span>
                     <span className="text-preset-8 font-barlow-condensed text-white uppercase">
