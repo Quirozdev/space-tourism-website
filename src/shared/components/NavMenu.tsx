@@ -39,6 +39,33 @@ export function NavMenu() {
         <img src={HamburgerMenuIcon} alt="Open menu" className="w-6" />
       </button>
 
+      <nav className="hidden flex-1 bg-white/5 backdrop-blur-[80px] md:flex">
+        <ul className="flex w-full items-center justify-end gap-x-12 px-10">
+          {menuOptions.map((menuOption) => {
+            return (
+              <li key={menuOption.index} className="h-full">
+                <button
+                  className={cn(
+                    "flex h-full cursor-pointer items-center gap-x-3 border-b-[3px] border-transparent",
+                    selectedMenuOption === menuOption.index && "border-white",
+                  )}
+                  onClick={() => {
+                    setSelectedMenuOption(menuOption.index);
+                  }}
+                >
+                  <span className="text-preset-8 bold font-barlow-condensed text-white">
+                    {menuOption.index}
+                  </span>
+                  <span className="text-preset-8 font-barlow-condensed text-white uppercase">
+                    {menuOption.label}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
       {isMobileNavigationMenuOpen && (
         <nav className="fixed top-0 right-0 z-10 flex min-h-screen w-64 flex-col gap-y-12 bg-blue-900/15 pl-8 backdrop-blur-[80px] md:hidden">
           <div className="flex items-center justify-end py-8 pr-6">
@@ -57,18 +84,17 @@ export function NavMenu() {
                 <li key={menuOption.index}>
                   <button
                     className={cn(
-                      "flex w-full cursor-pointer items-center gap-x-3",
-                      selectedMenuOption === menuOption.index &&
-                        "border-r-[3px] border-white",
+                      "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent",
+                      selectedMenuOption === menuOption.index && "border-white",
                     )}
                     onClick={() => {
                       setSelectedMenuOption(menuOption.index);
                     }}
                   >
-                    <span className="text-preset-8 font-bold text-white">
+                    <span className="text-preset-8 font-barlow-condensed font-bold text-white">
                       {menuOption.index}
                     </span>
-                    <span className="text-preset-8 text-white uppercase">
+                    <span className="text-preset-8 font-barlow-condensed text-white uppercase">
                       {menuOption.label}
                     </span>
                     <span></span>
