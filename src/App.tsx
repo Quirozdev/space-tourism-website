@@ -1,9 +1,9 @@
+import { Header } from "./shared/components/Header";
+
 function App() {
   return (
-    <div>
-      <p className="text-preset-1 font-bellefair">test</p>
-      <p className="text-preset-5 font-barlow-condensed">test</p>
-      <p className="text-preset-9 font-barlow">test</p>
+    <div className="min-h-screen w-full bg-[url(./assets/images/home/background-home-mobile.jpg)] bg-cover bg-no-repeat md:bg-[url(./assets/images/home/background-home-tablet.jpg)] xl:bg-[url(./assets/images/home/background-home-desktop.jpg)]">
+      <Header />
     </div>
   );
 }
