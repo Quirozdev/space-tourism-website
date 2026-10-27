@@ -1,5 +1,5 @@
-import Logo from "@/assets/images/shared/logo.svg";
-import { NavMenu } from "./NavMenu";
+import Logo from "@/shared/ui/icons/logo.svg";
+import { NavMenu } from "../navigation/NavMenu";
 
 export function Header() {
   return (

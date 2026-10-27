@@ -4,21 +4,21 @@
   font-family: "Bellefair";
   font-style: normal;
   font-weight: 400;
-  src: url(./assets/fonts/bellefair/Bellefair-Regular.ttf) format("truetype");
+  src: url(@/app/fonts/bellefair/Bellefair-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Barlow";
   font-style: normal;
   font-weight: 400;
-  src: url(./assets/fonts/barlow/Barlow-Regular.ttf) format("truetype");
+  src: url(@/app/fonts/barlow/Barlow-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
   font-weight: 400;
-  src: url(./assets/fonts/barlow-condensed/BarlowCondensed-Regular.ttf)
+  src: url(@/app/fonts/barlow-condensed/BarlowCondensed-Regular.ttf)
     format("truetype");
 }
 

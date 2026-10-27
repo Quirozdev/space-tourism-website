@@ -1,4 +1,4 @@
-import { ExploreButton } from "../components/ExploreButton";
+import { ExploreButton } from "./ExploreButton";
 
 export function HomePage() {
   return (
