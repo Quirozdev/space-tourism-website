@@ -51,8 +51,8 @@ export function NavMenu() {
                   to={{ pathname: menuOption.path }}
                   className={({ isActive }) => {
                     return cn(
-                      "flex h-full cursor-pointer items-center gap-x-3 border-b-[3px] border-transparent",
-                      isActive && "border-white",
+                      "flex h-full cursor-pointer items-center gap-x-3 border-b-[3px] border-transparent hover:border-white/50",
+                      isActive && "border-white hover:border-white",
                     );
                   }}
                 >
@@ -89,8 +89,8 @@ export function NavMenu() {
                     to={{ pathname: menuOption.path }}
                     className={({ isActive }) => {
                       return cn(
-                        "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent",
-                        isActive && "border-white",
+                        "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent hover:border-white/50",
+                        isActive && "border-white hover:border-white",
                       );
                     }}
                   >
