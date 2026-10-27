@@ -22,6 +22,14 @@
     format("truetype");
 }
 
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  src: url(@/app/fonts/barlow-condensed/BarlowCondensed-Bold.ttf)
+    format("truetype");
+}
+
 @theme {
   /* Colors */
   --color-blue-900: #0b0d17;
@@ -62,6 +70,11 @@
   --text-preset-8--line-height: auto;
   --text-preset-8--letter-spacing: 15%;
   --text-preset-8--font-weight: 400;
+
+  --text-preset-8-bold: 1rem;
+  --text-preset-8-bold--line-height: auto;
+  --text-preset-8-bold--letter-spacing: 2.7px;
+  --text-preset-8-bold--font-weight: 700;
 
   --text-preset-9: 0.9375rem;
   --text-preset-9--line-height: 180%;
@@ -156,11 +169,6 @@
     --text-preset-8--line-height: auto;
     --text-preset-8--letter-spacing: 2px;
     --text-preset-8--font-weight: 400;
-
-    --text-preset-8-bold: 1rem;
-    --text-preset-8-bold--line-height: auto;
-    --text-preset-8-bold--letter-spacing: 2.7px;
-    --text-preset-8-bold--font-weight: 700;
 
     --text-preset-9: 1.125rem;
     --text-preset-9--line-height: 180%;

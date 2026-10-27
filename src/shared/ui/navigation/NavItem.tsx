@@ -29,25 +29,3 @@ export function NavItem({ index, label, path }: Props) {
     </li>
   );
 }
-
-/*
-<li key={menuOption.index}>
-                  <NavLink
-                    to={{ pathname: menuOption.path }}
-                    className={({ isActive }) => {
-                      return cn(
-                        "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent hover:border-white/50",
-                        isActive && "border-white hover:border-white",
-                      );
-                    }}
-                  >
-                    <span className="text-preset-8-bold font-barlow-condensed text-white">
-                      {menuOption.index}
-                    </span>
-                    <span className="text-preset-8 font-barlow-condensed text-white uppercase">
-                      {menuOption.label}
-                    </span>
-                    <span></span>
-                  </NavLink>
-                </li>
-*/
