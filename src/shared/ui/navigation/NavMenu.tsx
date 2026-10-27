@@ -1,12 +1,30 @@
 import HamburgerMenuIcon from "@/shared/ui/icons/icon-hamburger.svg";
 import CloseIcon from "@/shared/ui/icons/icon-close.svg";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { NavItem } from "./NavItem";
 import { menuOptions } from "./navigation-items.constants";
+import { useClickOutside } from "@/shared/lib/dom/use-click-outside";
+import { useKeyDown } from "@/shared/lib/dom/use-key-down";
 
 export function NavMenu() {
   const [isMobileNavigationMenuOpen, setIsMobileNavigationMenuOpen] =
     useState(false);
+
+  const mobileMenuRef = useRef(null);
+
+  const hideMobileMenu = useCallback(() => {
+    setIsMobileNavigationMenuOpen(false);
+  }, []);
+
+  useClickOutside({
+    ref: mobileMenuRef,
+    onClickOutside: hideMobileMenu,
+  });
+
+  useKeyDown({
+    key: "Escape",
+    onKeyDown: hideMobileMenu,
+  });
 
   return (
     <>
@@ -35,7 +53,10 @@ export function NavMenu() {
       </nav>
 
       {isMobileNavigationMenuOpen && (
-        <nav className="fixed top-0 right-0 z-10 flex min-h-screen w-64 flex-col gap-y-12 bg-blue-900/15 pl-8 backdrop-blur-[80px] md:hidden">
+        <nav
+          ref={mobileMenuRef}
+          className="fixed top-0 right-0 z-10 flex min-h-screen w-64 flex-col gap-y-12 bg-blue-900/15 pl-8 backdrop-blur-[80px] md:hidden"
+        >
           <div className="flex items-center justify-end py-8 pr-6">
             <button
               className="cursor-pointer"
