@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { cn } from "../../lib/cn";
+import { cn } from "@/shared/lib/cn";
 
 interface Props {
   index: string;
@@ -9,7 +9,7 @@ interface Props {
 
 export function NavItem({ index, label, path }: Props) {
   return (
-    <li key={index} className="md:h-full">
+    <li className="md:h-full">
       <NavLink
         to={{ pathname: path }}
         className={({ isActive }) => {
