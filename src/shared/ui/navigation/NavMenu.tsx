@@ -5,6 +5,7 @@ import { NavItem } from "./NavItem";
 import { menuOptions } from "./navigation-items.constants";
 import { useClickOutside } from "@/shared/lib/dom/use-click-outside";
 import { useKeyDown } from "@/shared/lib/dom/use-key-down";
+import { cn } from "@/shared/lib/cn";
 
 export function NavMenu() {
   const [isMobileNavigationMenuOpen, setIsMobileNavigationMenuOpen] =
@@ -52,35 +53,36 @@ export function NavMenu() {
         </ul>
       </nav>
 
-      {isMobileNavigationMenuOpen && (
-        <nav
-          ref={mobileMenuRef}
-          className="fixed top-0 right-0 z-10 flex min-h-screen w-64 flex-col gap-y-12 bg-blue-900/15 pl-8 backdrop-blur-[80px] md:hidden"
-        >
-          <div className="flex items-center justify-end py-8 pr-6">
-            <button
-              className="cursor-pointer"
-              onClick={() => {
-                setIsMobileNavigationMenuOpen(false);
-              }}
-            >
-              <img src={CloseIcon} alt="Close menu" className="w-6" />
-            </button>
-          </div>
-          <ul className="flex flex-col gap-y-8">
-            {menuOptions.map((menuOption) => {
-              return (
-                <NavItem
-                  key={menuOption.index}
-                  index={menuOption.index}
-                  label={menuOption.label}
-                  path={menuOption.path}
-                />
-              );
-            })}
-          </ul>
-        </nav>
-      )}
+      <nav
+        ref={mobileMenuRef}
+        className={cn(
+          "fixed top-0 right-0 z-10 flex min-h-screen w-64 flex-col gap-y-12 bg-blue-900/15 pl-8 backdrop-blur-[80px] transition-transform duration-700 ease-in-out md:hidden",
+          isMobileNavigationMenuOpen ? "translate-x-0" : "translate-x-full",
+        )}
+      >
+        <div className="flex items-center justify-end py-8 pr-6">
+          <button
+            className="cursor-pointer"
+            onClick={() => {
+              setIsMobileNavigationMenuOpen(false);
+            }}
+          >
+            <img src={CloseIcon} alt="Close menu" className="w-6" />
+          </button>
+        </div>
+        <ul className="flex flex-col gap-y-8">
+          {menuOptions.map((menuOption) => {
+            return (
+              <NavItem
+                key={menuOption.index}
+                index={menuOption.index}
+                label={menuOption.label}
+                path={menuOption.path}
+              />
+            );
+          })}
+        </ul>
+      </nav>
     </>
   );
 }
