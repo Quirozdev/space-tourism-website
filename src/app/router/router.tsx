@@ -5,6 +5,7 @@ import { DestinationPage } from "@/pages/destination/ui/DestinationPage";
 import { CrewPage } from "@/pages/crew/ui/CrewPage";
 import { TechnologyPage } from "@/pages/technology/ui/TechnologyPage";
 import { DestinationDetails } from "../../pages/destination/ui/DestinationDetails";
+import { CrewMemberDetail } from "@/pages/crew/ui/CrewMemberDetail";
 
 export const router = createBrowserRouter(
   [
@@ -32,6 +33,16 @@ export const router = createBrowserRouter(
         {
           path: "crew",
           element: <CrewPage />,
+          children: [
+            {
+              index: true,
+              element: <Navigate to="douglas-hurley" />,
+            },
+            {
+              path: ":crew-member",
+              element: <CrewMemberDetail />,
+            },
+          ],
         },
         {
           path: "technology",
