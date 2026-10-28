@@ -1,10 +1,10 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import { AppLayout } from "@/app/layouts/AppLayout";
-import { HomePage } from "@/app/pages/home/ui/HomePage";
-import { DestinationPage } from "@/app/pages/destination/ui/DestinationPage";
-import { CrewPage } from "@/app/pages/crew/ui/CrewPage";
-import { TechnologyPage } from "@/app/pages/technology/ui/TechnologyPage";
-import { DestinationDetails } from "../pages/destination/ui/DestinationDetails";
+import { HomePage } from "@/pages/home/ui/HomePage";
+import { DestinationPage } from "@/pages/destination/ui/DestinationPage";
+import { CrewPage } from "@/pages/crew/ui/CrewPage";
+import { TechnologyPage } from "@/pages/technology/ui/TechnologyPage";
+import { DestinationDetails } from "../../pages/destination/ui/DestinationDetails";
 
 export const router = createBrowserRouter(
   [

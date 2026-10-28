@@ -1,7 +1,7 @@
-import MoonImg from "@/app/pages/destination/ui/images/image-moon.webp";
-import MarsImg from "@/app/pages/destination/ui/images/image-mars.webp";
-import EuropaImg from "@/app/pages/destination/ui/images/image-europa.webp";
-import TitanImg from "@/app/pages/destination/ui/images/image-titan.webp";
+import MoonImg from "@/pages/destination/ui/images/image-moon.webp";
+import MarsImg from "@/pages/destination/ui/images/image-mars.webp";
+import EuropaImg from "@/pages/destination/ui/images/image-europa.webp";
+import TitanImg from "@/pages/destination/ui/images/image-titan.webp";
 
 export const destinations = [
   {

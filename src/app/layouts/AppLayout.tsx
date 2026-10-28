@@ -8,13 +8,13 @@ export function AppLayout() {
   function getBackgroundImageClasses() {
     const [route] = location.pathname.replace("/", "").split("/");
     if (route === "") {
-      return "bg-[url(@/app/pages/home/ui/backgrounds/background-home-mobile.jpg)] md:bg-[url(@/app/pages/home/ui/backgrounds/background-home-tablet.jpg)] xl:bg-[url(@/app/pages/home/ui/backgrounds/background-home-desktop.jpg)]";
+      return "bg-[url(@/pages/home/ui/backgrounds/background-home-mobile.jpg)] md:bg-[url(@/pages/home/ui/backgrounds/background-home-tablet.jpg)] xl:bg-[url(@/pages/home/ui/backgrounds/background-home-desktop.jpg)]";
     } else if (route === "destination") {
-      return "bg-[url(@/app/pages/destination/ui/backgrounds/background-destination-mobile.jpg)] md:bg-[url(@/app/pages/destination/ui/backgrounds/background-destination-tablet.jpg)] xl:bg-[url(@/app/pages/destination/ui/backgrounds/background-destination-desktop.jpg)]";
+      return "bg-[url(@/pages/destination/ui/backgrounds/background-destination-mobile.jpg)] md:bg-[url(@/pages/destination/ui/backgrounds/background-destination-tablet.jpg)] xl:bg-[url(@/pages/destination/ui/backgrounds/background-destination-desktop.jpg)]";
     } else if (route === "crew") {
-      return "bg-[url(@/app/pages/crew/ui/backgrounds/background-crew-mobile.jpg)] md:bg-[url(@/app/pages/crew/ui/backgrounds/background-crew-tablet.jpg)] xl:bg-[url(@/app/pages/crew/ui/backgrounds/background-crew-desktop.jpg)]";
+      return "bg-[url(@/pages/crew/ui/backgrounds/background-crew-mobile.jpg)] md:bg-[url(@/pages/crew/ui/backgrounds/background-crew-tablet.jpg)] xl:bg-[url(@/pages/crew/ui/backgrounds/background-crew-desktop.jpg)]";
     } else if (route === "technology") {
-      return "bg-[url(@/app/pages/technology/ui/backgrounds/background-technology-mobile.jpg)] md:bg-[url(@/app/pages/technology/ui/backgrounds/background-technology-tablet.jpg)] xl:bg-[url(@/app/pages/technology/ui/backgrounds/background-technology-desktop.jpg)]";
+      return "bg-[url(@/pages/technology/ui/backgrounds/background-technology-mobile.jpg)] md:bg-[url(@/pages/technology/ui/backgrounds/background-technology-tablet.jpg)] xl:bg-[url(@/pages/technology/ui/backgrounds/background-technology-desktop.jpg)]";
     }
     return "";
   }
