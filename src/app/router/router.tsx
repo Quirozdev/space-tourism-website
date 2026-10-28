@@ -7,6 +7,7 @@ import { TechnologyPage } from "@/app/pages/technology/ui/TechnologyPage";
 import { MoonDestination } from "../pages/destination/ui/MoonDestination";
 import { MarsDestination } from "../pages/destination/ui/MarsDestination";
 import { EuropaDestination } from "../pages/destination/ui/EuropaDestination";
+import { TitanDestination } from "../pages/destination/ui/TitanDestination";
 
 export const router = createBrowserRouter(
   [
@@ -39,7 +40,7 @@ export const router = createBrowserRouter(
             },
             {
               path: "titan",
-              element: <MoonDestination />,
+              element: <TitanDestination />,
             },
           ],
         },
