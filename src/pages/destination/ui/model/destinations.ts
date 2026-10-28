@@ -50,9 +50,9 @@ export const destinations = [
   },
 ];
 
-export function getDestinationByPlanet(planet: string | undefined) {
+export function getDestinationByPath(path: string | undefined) {
   return (
-    destinations.find((destination) => destination.path === planet) ||
+    destinations.find((destination) => destination.path === path) ||
     destinations[0]
   );
 }

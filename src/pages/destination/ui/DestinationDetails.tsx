@@ -1,11 +1,11 @@
 import { useParams } from "react-router";
 import { Tabs } from "./tabs/Tabs";
-import { getDestinationByPlanet } from "./model/destinations";
+import { getDestinationByPath } from "./model/destinations";
 
 export function DestinationDetails() {
   const { planet } = useParams();
 
-  const destination = getDestinationByPlanet(planet);
+  const destination = getDestinationByPath(planet);
 
   return (
     <div className="flex w-full flex-col gap-8 xl:flex-1 xl:flex-row xl:items-center">

@@ -39,7 +39,7 @@ export const router = createBrowserRouter(
               element: <Navigate to="douglas-hurley" />,
             },
             {
-              path: ":crew-member",
+              path: ":crewMember",
               element: <CrewMemberDetail />,
             },
           ],
