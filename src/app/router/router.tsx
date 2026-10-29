@@ -7,6 +7,9 @@ import { TechnologyPage } from "@/pages/technology/ui/TechnologyPage";
 import { DestinationDetails } from "../../pages/destination/ui/DestinationDetails";
 import { CrewMemberDetail } from "@/pages/crew/ui/CrewMemberDetail";
 import { TechnologyDetail } from "@/pages/technology/ui/TechnologyDetail";
+import { getTechnologyByPath } from "@/pages/technology/ui/model/technologies";
+import { getCrewMemberByPath } from "@/pages/crew/ui/model/crew-members";
+import { getDestinationByPath } from "@/pages/destination/ui/model/destinations";
 
 export const router = createBrowserRouter(
   [
@@ -23,7 +26,9 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Navigate to="moon" replace />,
+              element: (
+                <Navigate to={getDestinationByPath(undefined).path} replace />
+              ),
             },
             {
               path: ":planet",
@@ -37,7 +42,9 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Navigate to="douglas-hurley" />,
+              element: (
+                <Navigate to={getCrewMemberByPath(undefined).path} replace />
+              ),
             },
             {
               path: ":crewMember",
@@ -51,7 +58,9 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Navigate to="launch-vehicle" />,
+              element: (
+                <Navigate to={getTechnologyByPath(undefined).path} replace />
+              ),
             },
             {
               path: ":technology",
