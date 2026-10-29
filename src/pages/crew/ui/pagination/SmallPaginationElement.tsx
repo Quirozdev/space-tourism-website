@@ -7,7 +7,7 @@ interface Props {
 
 export function SmallPaginationElement({ path }: Props) {
   return (
-    <li className="h-3.75 w-3.75">
+    <li className="h-2.5 w-2.5 xl:h-3.75 xl:w-3.75">
       <NavLink
         to={path}
         className={({ isActive }) => {
