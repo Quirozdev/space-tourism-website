@@ -8,7 +8,7 @@ export function Tabs() {
         return (
           <Tab
             key={destination.path}
-            label="Moon"
+            label={destination.name}
             path={`/destination/${destination.path}`}
           />
         );
