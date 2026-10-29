@@ -6,6 +6,7 @@ import { menuOptions } from "./navigation-items.constants";
 import { useClickOutside } from "@/shared/lib/dom/use-click-outside";
 import { useKeyDown } from "@/shared/lib/dom/use-key-down";
 import { cn } from "@/shared/lib/cn";
+import { handleBackgroundImagePreloading } from "@/app/config/page-background";
 
 export function NavMenu() {
   const [isMobileNavigationMenuOpen, setIsMobileNavigationMenuOpen] =
@@ -46,7 +47,13 @@ export function NavMenu() {
                 key={menuOption.index}
                 index={menuOption.index}
                 label={menuOption.label}
-                path={menuOption.path}
+                to={{ pathname: menuOption.path }}
+                onPointerEnter={() => {
+                  handleBackgroundImagePreloading(menuOption.path);
+                }}
+                onFocus={() => {
+                  handleBackgroundImagePreloading(menuOption.path);
+                }}
               />
             );
           })}
@@ -77,7 +84,13 @@ export function NavMenu() {
                 key={menuOption.index}
                 index={menuOption.index}
                 label={menuOption.label}
-                path={menuOption.path}
+                to={{ pathname: menuOption.path }}
+                onPointerEnter={() => {
+                  handleBackgroundImagePreloading(menuOption.path);
+                }}
+                onFocus={() => {
+                  handleBackgroundImagePreloading(menuOption.path);
+                }}
               />
             );
           })}
