@@ -24,7 +24,7 @@ export function AppLayout() {
   return (
     <div
       className={cn(
-        "flex min-h-screen w-full flex-col bg-cover bg-no-repeat",
+        "flex min-h-screen w-full flex-col overflow-x-hidden bg-cover bg-no-repeat",
         backgroundClasses,
       )}
     >

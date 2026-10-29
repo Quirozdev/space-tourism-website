@@ -6,6 +6,7 @@ import { CrewPage } from "@/pages/crew/ui/CrewPage";
 import { TechnologyPage } from "@/pages/technology/ui/TechnologyPage";
 import { DestinationDetails } from "../../pages/destination/ui/DestinationDetails";
 import { CrewMemberDetail } from "@/pages/crew/ui/CrewMemberDetail";
+import { TechnologyDetail } from "@/pages/technology/ui/TechnologyDetail";
 
 export const router = createBrowserRouter(
   [
@@ -47,6 +48,16 @@ export const router = createBrowserRouter(
         {
           path: "technology",
           element: <TechnologyPage />,
+          children: [
+            {
+              index: true,
+              element: <Navigate to="launch-vehicle" />,
+            },
+            {
+              path: ":technology",
+              element: <TechnologyDetail />,
+            },
+          ],
         },
       ],
     },
