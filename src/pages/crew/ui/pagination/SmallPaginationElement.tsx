@@ -10,6 +10,7 @@ export function SmallPaginationElement({ path }: Props) {
     <li className="h-2.5 w-2.5 xl:h-3.75 xl:w-3.75">
       <NavLink
         to={path}
+        viewTransition
         className={({ isActive }) => {
           return cn(
             "inline-block h-full w-full rounded-full bg-white opacity-[17.44%] hover:opacity-50",

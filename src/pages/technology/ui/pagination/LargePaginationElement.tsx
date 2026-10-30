@@ -11,6 +11,7 @@ export function LargePaginationElement({ path, index }: Props) {
     <li className="h-14 w-14 xl:h-20 xl:w-20">
       <NavLink
         to={path}
+        viewTransition
         className={({ isActive }) => {
           return cn(
             "flex h-full w-full items-center justify-center rounded-full border border-white/25 text-white hover:border-white",

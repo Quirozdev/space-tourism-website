@@ -11,6 +11,7 @@ export function Tab({ label, path }: Props) {
     <li className="h-8">
       <NavLink
         to={{ pathname: path }}
+        viewTransition
         className={({ isActive }) => {
           return cn(
             "inline-block h-full cursor-pointer border-b-[3px] border-transparent text-blue-300 hover:border-white/50 hover:text-white",

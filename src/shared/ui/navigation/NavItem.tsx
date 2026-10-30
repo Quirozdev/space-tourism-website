@@ -11,6 +11,7 @@ export function NavItem({ index, label, to, ...props }: Props) {
     <li className="md:h-full">
       <NavLink
         to={to}
+        viewTransition
         className={({ isActive }) => {
           return cn(
             "flex w-full cursor-pointer items-center gap-x-3 border-r-[3px] border-transparent hover:border-white/50 md:h-full md:border-r-0 md:border-b-[3px]",
