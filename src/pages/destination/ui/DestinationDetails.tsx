@@ -23,7 +23,7 @@ export function DestinationDetails() {
             <h2 className="text-preset-2 text-center text-white uppercase xl:text-left">
               {destination.name}
             </h2>
-            <p className="text-preset-9 font-barlow text-center text-blue-300 xl:text-left">
+            <p className="text-preset-9 font-barlow text-center text-blue-300 xl:min-h-[4lh] xl:text-left">
               {destination.description}
             </p>
           </div>
