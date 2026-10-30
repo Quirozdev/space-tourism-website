@@ -8,7 +8,7 @@ export function CrewMemberDetail() {
   const crewMemberInfo = getCrewMemberByPath(crewMember);
 
   return (
-    <div className="flex flex-1 flex-col gap-8 xl:flex-row">
+    <div className="flex flex-1 flex-col items-center gap-8 xl:flex-row xl:items-stretch">
       <div className="flex flex-1 flex-col items-center gap-y-6 md:max-w-lg xl:max-w-none xl:items-start xl:gap-y-10">
         <div className="flex flex-1 flex-col gap-y-6 text-center xl:justify-center xl:text-left">
           <div className="flex flex-col gap-y-2 pt-10 md:gap-y-4 xl:pt-0">
@@ -19,7 +19,7 @@ export function CrewMemberDetail() {
               {crewMemberInfo.name}
             </h2>
           </div>
-          <p className="text-preset-9 font-barlow text-blue-300">
+          <p className="text-preset-9 font-barlow min-h-[6lh] text-blue-300 md:min-h-[4lh]">
             {crewMemberInfo.bio}
           </p>
         </div>
