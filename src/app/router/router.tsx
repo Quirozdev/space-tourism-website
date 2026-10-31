@@ -10,6 +10,7 @@ import { TechnologyDetail } from "@/pages/technology/ui/TechnologyDetail";
 import { getTechnologyByPath } from "@/pages/technology/ui/model/technologies";
 import { getCrewMemberByPath } from "@/pages/crew/ui/model/crew-members";
 import { getDestinationByPath } from "@/pages/destination/ui/model/destinations";
+import { NotFoundPage } from "@/pages/not-found/ui/NotFoundPage";
 
 export const router = createBrowserRouter(
   [
@@ -67,6 +68,10 @@ export const router = createBrowserRouter(
               element: <TechnologyDetail />,
             },
           ],
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
         },
       ],
     },

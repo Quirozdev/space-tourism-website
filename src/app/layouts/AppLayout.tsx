@@ -9,7 +9,7 @@ export function AppLayout() {
   return (
     <div
       className={cn(
-        "flex min-h-screen w-full flex-col overflow-x-hidden bg-cover bg-no-repeat",
+        "flex min-h-screen w-full flex-col overflow-x-hidden bg-blue-900 bg-cover bg-no-repeat",
         getBackgroundImageClasses(location.pathname),
       )}
     >
