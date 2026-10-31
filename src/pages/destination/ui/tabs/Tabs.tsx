@@ -1,4 +1,4 @@
-import { destinations } from "../model/destinations";
+import { destinations } from "../../model/destinations";
 import { Tab } from "./Tab";
 
 export function Tabs() {

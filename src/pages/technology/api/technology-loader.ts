@@ -1,5 +1,5 @@
 import { redirect, type LoaderFunctionArgs } from "react-router";
-import { getTechnologyByPath } from "../ui/model/technologies";
+import { getTechnologyByPath } from "../model/technologies";
 
 export function technologyLoader({ params }: LoaderFunctionArgs) {
   const technology = getTechnologyByPath(params.technology);

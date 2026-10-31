@@ -1,5 +1,5 @@
 import { redirect, type LoaderFunctionArgs } from "react-router";
-import { getCrewMemberByPath } from "../ui/model/crew-members";
+import { getCrewMemberByPath } from "../model/crew-members";
 
 export function crewMemberLoader({ params }: LoaderFunctionArgs) {
   const crewMember = getCrewMemberByPath(params.crewMember);

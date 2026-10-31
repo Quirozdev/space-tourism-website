@@ -7,12 +7,12 @@ import { TechnologyPage } from "@/pages/technology/ui/TechnologyPage";
 import { DestinationDetails } from "../../pages/destination/ui/DestinationDetails";
 import { CrewMemberDetail } from "@/pages/crew/ui/CrewMemberDetail";
 import { TechnologyDetail } from "@/pages/technology/ui/TechnologyDetail";
-import { technologies } from "@/pages/technology/ui/model/technologies";
+import { defaultTechnologyPath } from "@/pages/technology/model/technologies";
 import { NotFoundPage } from "@/pages/not-found/ui/NotFoundPage";
 import { destinationLoader } from "@/pages/destination/api/destination-loader";
 import { crewMemberLoader } from "@/pages/crew/api/crew-member-loader";
-import { destinations } from "@/pages/destination/ui/model/destinations";
-import { crewMembers } from "@/pages/crew/ui/model/crew-members";
+import { defaultDestinationPath } from "@/pages/destination/model/destinations";
+import { defaultCrewMemberPath } from "@/pages/crew/model/crew-members";
 import { technologyLoader } from "@/pages/technology/api/technology-loader";
 
 export const router = createBrowserRouter(
@@ -30,7 +30,7 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Navigate to={destinations[0].path} replace />,
+              element: <Navigate to={defaultDestinationPath} replace />,
             },
             {
               path: ":planet",
@@ -45,7 +45,7 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Navigate to={crewMembers[0].path} replace />,
+              element: <Navigate to={defaultCrewMemberPath} replace />,
             },
             {
               path: ":crewMember",
@@ -60,7 +60,7 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Navigate to={technologies[0].path} replace />,
+              element: <Navigate to={defaultTechnologyPath} replace />,
             },
             {
               path: ":technology",
@@ -68,6 +68,10 @@ export const router = createBrowserRouter(
               element: <TechnologyDetail />,
             },
           ],
+        },
+        {
+          path: "not-found",
+          element: <NotFoundPage />,
         },
         {
           path: "*",

@@ -1,4 +1,4 @@
-import { technologies } from "../model/technologies";
+import { technologies } from "../../model/technologies";
 import { LargePaginationElement } from "./LargePaginationElement";
 
 export function LargePagination() {

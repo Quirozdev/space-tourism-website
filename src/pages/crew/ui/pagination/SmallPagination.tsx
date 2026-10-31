@@ -1,4 +1,4 @@
-import { crewMembers } from "../model/crew-members";
+import { crewMembers } from "../../model/crew-members";
 import { SmallPaginationElement } from "./SmallPaginationElement";
 
 export function SmallPagination() {

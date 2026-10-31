@@ -32,6 +32,8 @@ export const technologies = [
   },
 ];
 
+export const defaultTechnologyPath = technologies[0].path;
+
 export function getTechnologyByPath(path: string | undefined) {
   return technologies.find((technology) => technology.path === path);
 }

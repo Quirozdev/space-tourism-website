@@ -1,5 +1,5 @@
 import { redirect, type LoaderFunctionArgs } from "react-router";
-import { getDestinationByPath } from "../ui/model/destinations";
+import { getDestinationByPath } from "../model/destinations";
 
 export function destinationLoader({ params }: LoaderFunctionArgs) {
   const destination = getDestinationByPath(params.planet);

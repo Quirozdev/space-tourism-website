@@ -42,6 +42,8 @@ export const crewMembers = [
   },
 ];
 
+export const defaultCrewMemberPath = crewMembers[0].path;
+
 export function getCrewMemberByPath(path: string | undefined) {
   return crewMembers.find((crewMember) => crewMember.path === path);
 }

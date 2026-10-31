@@ -50,6 +50,8 @@ export const destinations = [
   },
 ];
 
+export const defaultDestinationPath = destinations[0].path;
+
 export function getDestinationByPath(path: string | undefined) {
   return destinations.find((destination) => destination.path === path);
 }
