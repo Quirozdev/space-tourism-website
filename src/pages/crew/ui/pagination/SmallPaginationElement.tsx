@@ -3,14 +3,16 @@ import { NavLink } from "react-router";
 
 interface Props {
   path: string;
+  crewMemberName: string;
 }
 
-export function SmallPaginationElement({ path }: Props) {
+export function SmallPaginationElement({ path, crewMemberName }: Props) {
   return (
     <li className="flex h-2.5 w-2.5 items-center justify-center xl:h-3.75 xl:w-3.75">
       <NavLink
         to={path}
         viewTransition
+        aria-label={crewMemberName}
         className={({ isActive }) => {
           return cn(
             "inline-block h-full w-full rounded-full bg-white opacity-[17.44%] hover:opacity-50",

@@ -9,6 +9,7 @@ export function SmallPagination() {
           <SmallPaginationElement
             key={crewMember.path}
             path={`/crew/${crewMember.path}`}
+            crewMemberName={crewMember.name}
           />
         );
       })}

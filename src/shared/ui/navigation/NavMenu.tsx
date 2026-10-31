@@ -45,6 +45,7 @@ export function NavMenu() {
 
       <nav
         ref={mobileMenuRef}
+        inert={!isMobileNavigationMenuOpen}
         className={cn(
           "fixed top-0 right-0 z-10 flex min-h-screen w-64 flex-col gap-y-12 bg-blue-900/15 pl-8 backdrop-blur-[80px] transition-transform duration-700 ease-in-out md:hidden",
           isMobileNavigationMenuOpen ? "translate-x-0" : "translate-x-full",
