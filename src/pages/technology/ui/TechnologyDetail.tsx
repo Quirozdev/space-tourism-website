@@ -1,11 +1,9 @@
 import { LargePagination } from "./pagination/LargePagination";
-import { getTechnologyByPath } from "./model/technologies";
-import { useParams } from "react-router";
+import { useLoaderData } from "react-router";
+import type { technologyLoader } from "../api/technology-loader";
 
 export function TechnologyDetail() {
-  const { technology } = useParams();
-
-  const technologyInfo = getTechnologyByPath(technology);
+  const technologyInfo = useLoaderData<typeof technologyLoader>();
 
   return (
     <div className="flex w-full flex-col gap-8 xl:flex-row-reverse xl:gap-x-16">

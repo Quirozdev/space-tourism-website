@@ -7,10 +7,13 @@ import { TechnologyPage } from "@/pages/technology/ui/TechnologyPage";
 import { DestinationDetails } from "../../pages/destination/ui/DestinationDetails";
 import { CrewMemberDetail } from "@/pages/crew/ui/CrewMemberDetail";
 import { TechnologyDetail } from "@/pages/technology/ui/TechnologyDetail";
-import { getTechnologyByPath } from "@/pages/technology/ui/model/technologies";
-import { getCrewMemberByPath } from "@/pages/crew/ui/model/crew-members";
-import { getDestinationByPath } from "@/pages/destination/ui/model/destinations";
+import { technologies } from "@/pages/technology/ui/model/technologies";
 import { NotFoundPage } from "@/pages/not-found/ui/NotFoundPage";
+import { destinationLoader } from "@/pages/destination/api/destination-loader";
+import { crewMemberLoader } from "@/pages/crew/api/crew-member-loader";
+import { destinations } from "@/pages/destination/ui/model/destinations";
+import { crewMembers } from "@/pages/crew/ui/model/crew-members";
+import { technologyLoader } from "@/pages/technology/api/technology-loader";
 
 export const router = createBrowserRouter(
   [
@@ -27,12 +30,11 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: (
-                <Navigate to={getDestinationByPath(undefined).path} replace />
-              ),
+              element: <Navigate to={destinations[0].path} replace />,
             },
             {
               path: ":planet",
+              loader: destinationLoader,
               element: <DestinationDetails />,
             },
           ],
@@ -43,12 +45,11 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: (
-                <Navigate to={getCrewMemberByPath(undefined).path} replace />
-              ),
+              element: <Navigate to={crewMembers[0].path} replace />,
             },
             {
               path: ":crewMember",
+              loader: crewMemberLoader,
               element: <CrewMemberDetail />,
             },
           ],
@@ -59,12 +60,11 @@ export const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: (
-                <Navigate to={getTechnologyByPath(undefined).path} replace />
-              ),
+              element: <Navigate to={technologies[0].path} replace />,
             },
             {
               path: ":technology",
+              loader: technologyLoader,
               element: <TechnologyDetail />,
             },
           ],

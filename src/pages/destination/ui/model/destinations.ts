@@ -51,8 +51,5 @@ export const destinations = [
 ];
 
 export function getDestinationByPath(path: string | undefined) {
-  return (
-    destinations.find((destination) => destination.path === path) ||
-    destinations[0]
-  );
+  return destinations.find((destination) => destination.path === path);
 }

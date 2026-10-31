@@ -43,7 +43,5 @@ export const crewMembers = [
 ];
 
 export function getCrewMemberByPath(path: string | undefined) {
-  return (
-    crewMembers.find((crewMember) => crewMember.path === path) || crewMembers[0]
-  );
+  return crewMembers.find((crewMember) => crewMember.path === path);
 }

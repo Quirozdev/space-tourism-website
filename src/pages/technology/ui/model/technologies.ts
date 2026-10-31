@@ -33,8 +33,5 @@ export const technologies = [
 ];
 
 export function getTechnologyByPath(path: string | undefined) {
-  return (
-    technologies.find((technology) => technology.path === path) ||
-    technologies[0]
-  );
+  return technologies.find((technology) => technology.path === path);
 }

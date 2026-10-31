@@ -1,11 +1,9 @@
-import { useParams } from "react-router";
+import { useLoaderData } from "react-router";
 import { SmallPagination } from "./pagination/SmallPagination";
-import { getCrewMemberByPath } from "./model/crew-members";
+import { crewMemberLoader } from "../api/crew-member-loader";
 
 export function CrewMemberDetail() {
-  const { crewMember } = useParams();
-
-  const crewMemberInfo = getCrewMemberByPath(crewMember);
+  const crewMemberInfo = useLoaderData<typeof crewMemberLoader>();
 
   return (
     <div className="flex flex-1 flex-col items-center gap-8 xl:flex-row xl:items-stretch">

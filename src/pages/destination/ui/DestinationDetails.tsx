@@ -1,11 +1,9 @@
-import { useParams } from "react-router";
+import { useLoaderData } from "react-router";
 import { Tabs } from "./tabs/Tabs";
-import { getDestinationByPath } from "./model/destinations";
+import { destinationLoader } from "../api/destination-loader";
 
 export function DestinationDetails() {
-  const { planet } = useParams();
-
-  const destination = getDestinationByPath(planet);
+  const destination = useLoaderData<typeof destinationLoader>();
 
   return (
     <div className="flex w-full flex-col gap-8 xl:flex-1 xl:flex-row xl:items-center">
