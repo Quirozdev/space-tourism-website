@@ -8,11 +8,17 @@ export function TechnologyDetail() {
   return (
     <div className="flex w-full flex-col gap-8 xl:flex-row-reverse xl:gap-x-16">
       <div className="-mx-6 overflow-x-hidden md:-mx-10 xl:-mr-44">
-        <img
-          src={technologyInfo.images.portrait}
-          alt={technologyInfo.name}
-          className="max-h-64.5 w-full max-w-none object-cover object-bottom md:max-h-89.25 md:object-center xl:max-h-none xl:min-w-[600px]"
-        />
+        <picture>
+          <source
+            media="(min-width: 80rem)"
+            srcSet={technologyInfo.images.portrait}
+          />
+          <img
+            src={technologyInfo.images.landscape}
+            alt={technologyInfo.name}
+            className="max-h-64.5 w-full max-w-none object-cover object-bottom md:max-h-89.25 md:object-center xl:max-h-none xl:min-h-[600px] xl:min-w-[600px]"
+          />
+        </picture>
       </div>
       <div className="flex flex-col items-center gap-y-10 xl:shrink-0 xl:flex-row xl:gap-x-16">
         <LargePagination />
