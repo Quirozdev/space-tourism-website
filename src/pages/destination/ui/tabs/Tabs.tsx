@@ -10,6 +10,7 @@ export function Tabs() {
             key={destination.path}
             label={destination.name}
             path={`/destination/${destination.path}`}
+            destinationName={destination.name}
           />
         );
       })}

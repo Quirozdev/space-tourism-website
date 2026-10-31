@@ -4,13 +4,15 @@ import { NavLink } from "react-router";
 interface Props {
   label: string;
   path: string;
+  destinationName: string;
 }
 
-export function Tab({ label, path }: Props) {
+export function Tab({ label, path, destinationName }: Props) {
   return (
     <li className="h-8">
       <NavLink
         to={{ pathname: path }}
+        aria-label={destinationName}
         viewTransition
         className={({ isActive }) => {
           return cn(

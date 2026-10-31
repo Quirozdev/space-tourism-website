@@ -10,6 +10,7 @@ export function LargePagination() {
             key={technology.path}
             path={`/technology/${technology.path}`}
             index={index + 1}
+            technologyName={technology.name}
           />
         );
       })}
