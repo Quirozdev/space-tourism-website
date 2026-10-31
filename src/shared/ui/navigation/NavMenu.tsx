@@ -1,12 +1,10 @@
 import HamburgerMenuIcon from "@/shared/ui/icons/icon-hamburger.svg";
 import CloseIcon from "@/shared/ui/icons/icon-close.svg";
 import { useCallback, useRef, useState } from "react";
-import { NavItem } from "./NavItem";
-import { menuOptions } from "./navigation-items.constants";
 import { useClickOutside } from "@/shared/lib/dom/use-click-outside";
 import { useKeyDown } from "@/shared/lib/dom/use-key-down";
 import { cn } from "@/shared/lib/cn";
-import { handleBackgroundImagePreloading } from "@/app/config/page-background";
+import { NavItemWrapper } from "./NavItemWrapper";
 
 export function NavMenu() {
   const [isMobileNavigationMenuOpen, setIsMobileNavigationMenuOpen] =
@@ -41,22 +39,7 @@ export function NavMenu() {
 
       <nav className="hidden flex-1 bg-white/5 backdrop-blur-[80px] md:flex">
         <ul className="flex w-full items-center justify-end gap-x-12 px-10">
-          {menuOptions.map((menuOption) => {
-            return (
-              <NavItem
-                key={menuOption.index}
-                index={menuOption.index}
-                label={menuOption.label}
-                to={{ pathname: menuOption.path }}
-                onPointerEnter={() => {
-                  handleBackgroundImagePreloading(menuOption.path);
-                }}
-                onFocus={() => {
-                  handleBackgroundImagePreloading(menuOption.path);
-                }}
-              />
-            );
-          })}
+          <NavItemWrapper />
         </ul>
       </nav>
 
@@ -78,22 +61,7 @@ export function NavMenu() {
           </button>
         </div>
         <ul className="flex flex-col gap-y-8">
-          {menuOptions.map((menuOption) => {
-            return (
-              <NavItem
-                key={menuOption.index}
-                index={menuOption.index}
-                label={menuOption.label}
-                to={{ pathname: menuOption.path }}
-                onPointerEnter={() => {
-                  handleBackgroundImagePreloading(menuOption.path);
-                }}
-                onFocus={() => {
-                  handleBackgroundImagePreloading(menuOption.path);
-                }}
-              />
-            );
-          })}
+          <NavItemWrapper />
         </ul>
       </nav>
     </>
