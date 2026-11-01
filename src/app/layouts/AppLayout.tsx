@@ -5,10 +5,12 @@ import {
   getPageBackground,
   handleBackgroundImagePreloading,
 } from "../config/page-background";
-import type { CSSProperties } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 export function AppLayout() {
   const location = useLocation();
+  const mainRef = useRef<HTMLElement | null>(null);
+  const previousPathname = useRef(location.pathname);
 
   const background = getPageBackground(location.pathname);
 
@@ -20,6 +22,22 @@ export function AppLayout() {
       } as CSSProperties)
     : undefined;
 
+  useEffect(() => {
+    if (previousPathname.current === location.pathname) {
+      return;
+    }
+
+    previousPathname.current = location.pathname;
+
+    const heading = mainRef.current?.querySelector<HTMLElement>("h1");
+
+    if (heading) {
+      heading.focus();
+    } else {
+      mainRef.current?.focus();
+    }
+  }, [location.pathname]);
+
   return (
     <div
       style={backgroundStyle}
@@ -29,7 +47,11 @@ export function AppLayout() {
       )}
     >
       <Header onNavigationIntent={handleBackgroundImagePreloading} />
-      <main className="flex flex-1 flex-col p-6 md:p-10 xl:mx-auto xl:w-full xl:max-w-277.5 xl:px-0 xl:py-12">
+      <main
+        ref={mainRef}
+        tabIndex={-1}
+        className="flex flex-1 flex-col p-6 md:p-10 xl:mx-auto xl:w-full xl:max-w-277.5 xl:px-0 xl:py-12"
+      >
         <Outlet />
       </main>
     </div>
