@@ -2,7 +2,11 @@ import { handleBackgroundImagePreloading } from "@/app/config/page-background";
 import { NavItem } from "./NavItem";
 import { menuOptions } from "./navigation-items.constants";
 
-export function NavItemWrapper() {
+interface Props {
+  onSelect: () => void;
+}
+
+export function NavItemWrapper({ onSelect }: Props) {
   return (
     <>
       {menuOptions.map((menuOption) => {
@@ -18,6 +22,7 @@ export function NavItemWrapper() {
             onFocus={() => {
               handleBackgroundImagePreloading(menuOption.path);
             }}
+            onClick={onSelect}
           />
         );
       })}

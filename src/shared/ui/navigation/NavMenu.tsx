@@ -39,7 +39,7 @@ export function NavMenu() {
 
       <nav className="hidden flex-1 bg-white/5 backdrop-blur-[80px] md:flex">
         <ul className="flex w-full items-center justify-end gap-x-12 px-10">
-          <NavItemWrapper />
+          <NavItemWrapper onSelect={hideMobileMenu} />
         </ul>
       </nav>
 
@@ -62,7 +62,7 @@ export function NavMenu() {
           </button>
         </div>
         <ul className="flex flex-col gap-y-8">
-          <NavItemWrapper />
+          <NavItemWrapper onSelect={hideMobileMenu} />
         </ul>
       </nav>
     </>
