@@ -81,6 +81,7 @@ export function NavMenu({ onNavigationIntent }: Props) {
             className="cursor-pointer"
             onClick={() => {
               setIsMobileNavigationMenuOpen(false);
+              menuButtonRef.current?.focus();
             }}
           >
             <img src={CloseIcon} alt="Close menu" className="w-6" />
