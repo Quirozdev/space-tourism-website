@@ -24,12 +24,12 @@ export function TechnologyDetail() {
         <LargePagination />
         <div className="flex flex-col gap-y-4 md:max-w-lg xl:gap-y-6">
           <div className="flex flex-col gap-y-4 text-center xl:text-left">
-            <h3 className="text-preset-4 text-white uppercase opacity-50">
+            <h2 className="text-preset-4 text-white uppercase opacity-50">
               The terminology...
-            </h3>
-            <h2 className="text-preset-3 text-white uppercase">
-              {technologyInfo.name}
             </h2>
+            <h3 className="text-preset-3 text-white uppercase">
+              {technologyInfo.name}
+            </h3>
           </div>
           <p className="text-preset-9 font-barlow text-center text-blue-300 xl:text-left">
             {technologyInfo.description}

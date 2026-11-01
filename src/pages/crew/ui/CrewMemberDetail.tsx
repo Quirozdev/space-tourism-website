@@ -10,12 +10,12 @@ export function CrewMemberDetail() {
       <div className="flex flex-1 flex-col items-center gap-y-6 md:max-w-lg xl:max-w-none xl:items-start xl:gap-y-10">
         <div className="flex flex-1 flex-col gap-y-6 text-center xl:justify-center xl:text-left">
           <div className="flex flex-col gap-y-2 pt-10 md:gap-y-4 xl:pt-0">
-            <h3 className="text-preset-4 text-white uppercase opacity-50">
+            <h2 className="text-preset-4 text-white uppercase opacity-50">
               {crewMemberInfo.role}
-            </h3>
-            <h2 className="text-preset-3 text-white uppercase">
-              {crewMemberInfo.name}
             </h2>
+            <h3 className="text-preset-3 text-white uppercase">
+              {crewMemberInfo.name}
+            </h3>
           </div>
           <p className="text-preset-9 font-barlow min-h-[6lh] text-blue-300 md:min-h-[4lh]">
             {crewMemberInfo.bio}
