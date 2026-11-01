@@ -1,6 +1,6 @@
 import HamburgerMenuIcon from "@/shared/ui/icons/icon-hamburger.svg";
 import CloseIcon from "@/shared/ui/icons/icon-close.svg";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import { useClickOutside } from "@/shared/lib/dom/use-click-outside";
 import { useKeyDown } from "@/shared/lib/dom/use-key-down";
 import { cn } from "@/shared/lib/cn";
@@ -15,6 +15,8 @@ export function NavMenu({ onNavigationIntent }: Props) {
     useState(false);
 
   const mobileMenuRef = useRef(null);
+
+  const mobileMenuId = useId();
 
   const hideMobileMenu = useCallback(() => {
     setIsMobileNavigationMenuOpen(false);
@@ -33,12 +35,16 @@ export function NavMenu({ onNavigationIntent }: Props) {
   return (
     <>
       <button
+        type="button"
         className="cursor-pointer md:hidden"
+        aria-expanded={isMobileNavigationMenuOpen}
+        aria-controls={mobileMenuId}
+        aria-label="Open navigation menu"
         onClick={() => {
           setIsMobileNavigationMenuOpen(true);
         }}
       >
-        <img src={HamburgerMenuIcon} alt="Open menu" className="w-6" />
+        <img src={HamburgerMenuIcon} alt="" className="w-6" />
       </button>
 
       <nav className="hidden flex-1 bg-white/5 backdrop-blur-[80px] md:flex">
@@ -51,6 +57,8 @@ export function NavMenu({ onNavigationIntent }: Props) {
       </nav>
 
       <nav
+        id={mobileMenuId}
+        aria-label="Mobile navigation"
         ref={mobileMenuRef}
         inert={!isMobileNavigationMenuOpen}
         className={cn(
