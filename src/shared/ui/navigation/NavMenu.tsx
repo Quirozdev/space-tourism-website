@@ -14,7 +14,9 @@ export function NavMenu({ onNavigationIntent }: Props) {
   const [isMobileNavigationMenuOpen, setIsMobileNavigationMenuOpen] =
     useState(false);
 
-  const mobileMenuRef = useRef(null);
+  const mobileMenuRef = useRef<HTMLElement | null>(null);
+
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   const mobileMenuId = useId();
 
@@ -29,17 +31,25 @@ export function NavMenu({ onNavigationIntent }: Props) {
 
   useKeyDown({
     key: "Escape",
-    onKeyDown: hideMobileMenu,
+    onKeyDown: () => {
+      hideMobileMenu();
+      menuButtonRef.current?.focus();
+    },
   });
 
   return (
     <>
       <button
+        ref={menuButtonRef}
         type="button"
         className="cursor-pointer md:hidden"
         aria-expanded={isMobileNavigationMenuOpen}
         aria-controls={mobileMenuId}
-        aria-label="Open navigation menu"
+        aria-label={
+          isMobileNavigationMenuOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        }
         onClick={() => {
           setIsMobileNavigationMenuOpen(true);
         }}
