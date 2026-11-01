@@ -16,37 +16,66 @@ import TechnologyBgMobile from "@/app/assets/backgrounds/technology/background-t
 import TechnologyBgTablet from "@/app/assets/backgrounds/technology/background-technology-tablet.jpg";
 import TechnologyBgDesktop from "@/app/assets/backgrounds/technology/background-technology-desktop.jpg";
 
-export function handleBackgroundImagePreloading(path: string) {
-  const mapping = {
-    "/": [HomeBgMobile, HomeBgTablet, HomeBgDesktop],
-    destination: [
-      DestinationBgMobile,
-      DestinationBgTablet,
-      DestinationBgDesktop,
-    ],
-    crew: [CrewBgMobile, CrewBgTablet, CrewBgDesktop],
-    technology: [TechnologyBgMobile, TechnologyBgTablet, TechnologyBgDesktop],
-  };
+export const responsiveBackgroundClasses =
+  "bg-(image:--page-background-mobile) md:bg-(image:--page-background-tablet) xl:bg-(image:--page-background-desktop)";
 
-  const backgrounds = mapping[path as keyof typeof mapping];
+export const pageBackgrounds = {
+  home: {
+    images: {
+      mobile: HomeBgMobile,
+      tablet: HomeBgTablet,
+      desktop: HomeBgDesktop,
+    },
+    className: responsiveBackgroundClasses,
+  },
+  destination: {
+    images: {
+      mobile: DestinationBgMobile,
+      tablet: DestinationBgTablet,
+      desktop: DestinationBgDesktop,
+    },
+    className: responsiveBackgroundClasses,
+  },
+  crew: {
+    images: {
+      mobile: CrewBgMobile,
+      tablet: CrewBgTablet,
+      desktop: CrewBgDesktop,
+    },
+    className: responsiveBackgroundClasses,
+  },
+  technology: {
+    images: {
+      mobile: TechnologyBgMobile,
+      tablet: TechnologyBgTablet,
+      desktop: TechnologyBgDesktop,
+    },
+    className: responsiveBackgroundClasses,
+  },
+} as const;
 
-  if (backgrounds) {
-    backgrounds.forEach((background) => {
-      preload(background, { as: "image" });
-    });
+export type BackgroundPage = keyof typeof pageBackgrounds;
+
+export function getPageBackground(pathname: string) {
+  let [route] = pathname.replace("/", "").split("/");
+  if (route === "") {
+    route = "home";
   }
+  return pageBackgrounds[route as BackgroundPage];
 }
 
-export function getBackgroundImageClasses(pathname: string) {
-  const [route] = pathname.replace("/", "").split("/");
-  if (route === "") {
-    return "bg-[url(@/app/assets/backgrounds/home/background-home-mobile.jpg)] md:bg-[url(@/app/assets/backgrounds/home/background-home-tablet.jpg)] xl:bg-[url(@/app/assets/backgrounds/home/background-home-desktop.jpg)]";
-  } else if (route === "destination") {
-    return "bg-[url(@/app/assets/backgrounds/destination/background-destination-mobile.jpg)] md:bg-[url(@/app/assets/backgrounds/destination/background-destination-tablet.jpg)] xl:bg-[url(@/app/assets/backgrounds/destination/background-destination-desktop.jpg)]";
-  } else if (route === "crew") {
-    return "bg-[url(@/app/assets/backgrounds/crew/background-crew-mobile.jpg)] md:bg-[url(@/app/assets/backgrounds/crew/background-crew-tablet.jpg)] xl:bg-[url(@/app/assets/backgrounds/crew/background-crew-desktop.jpg)]";
-  } else if (route === "technology") {
-    return "bg-[url(@/app/assets/backgrounds/technology/background-technology-mobile.jpg)] md:bg-[url(@/app/assets/backgrounds/technology/background-technology-tablet.jpg)] xl:bg-[url(@/app/assets/backgrounds/technology/background-technology-desktop.jpg)]";
-  }
-  return "";
+export function handleBackgroundImagePreloading(path: string) {
+  const background = getPageBackground(path);
+
+  if (!background) return;
+
+  const { mobile, tablet, desktop } = background.images;
+
+  const image = window.matchMedia("(min-width: 80rem)").matches
+    ? desktop
+    : window.matchMedia("(min-width: 48rem)").matches
+      ? tablet
+      : mobile;
+
+  preload(image, { as: "image" });
 }

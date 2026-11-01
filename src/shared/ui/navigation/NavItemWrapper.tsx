@@ -1,12 +1,12 @@
-import { handleBackgroundImagePreloading } from "@/app/config/page-background";
 import { NavItem } from "./NavItem";
 import { menuOptions } from "./navigation-items.constants";
 
 interface Props {
+  onNavigationIntent: (path: string) => void;
   onSelect: () => void;
 }
 
-export function NavItemWrapper({ onSelect }: Props) {
+export function NavItemWrapper({ onSelect, onNavigationIntent }: Props) {
   return (
     <>
       {menuOptions.map((menuOption) => {
@@ -17,10 +17,10 @@ export function NavItemWrapper({ onSelect }: Props) {
             label={menuOption.label}
             to={{ pathname: menuOption.path }}
             onPointerEnter={() => {
-              handleBackgroundImagePreloading(menuOption.path);
+              onNavigationIntent(menuOption.path);
             }}
             onFocus={() => {
-              handleBackgroundImagePreloading(menuOption.path);
+              onNavigationIntent(menuOption.path);
             }}
             onClick={onSelect}
           />
